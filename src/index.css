@@ -4,14 +4,13 @@
 }
 
 html {
-    /* a cada 1rem = 10px */
+    /* for each 1rem == 10px */
     font-size: 62.5%;
 }
 
 body {
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.6rem;
-    min-height: 100vh;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
