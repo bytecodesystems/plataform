@@ -49,8 +49,7 @@ const App = () => {
                             <ModuleRenderer
                                 credentials={credentials}
                                 moduleURL={module.url} 
-                            />
-                        }
+                            />}
                     />
                 ))}
             </Routes>

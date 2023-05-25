@@ -1,13 +1,10 @@
-import { useEffect } from "react"
-
 const ModuleRenderer = ({ moduleURL, credentials }) => {
 
     // SEND CREDENTIALS TO MODULE
-    const onLoadFrame = () => {
+    const sendCredentials = () => {
         const moduleWindow = document.getElementById(`module_frame_${moduleURL}`).contentWindow
 
         moduleWindow.postMessage(JSON.stringify(credentials), "*")
-        console.log("PLATAFORM: credentials sent")
     }
 
     // RENDERING
@@ -16,7 +13,7 @@ const ModuleRenderer = ({ moduleURL, credentials }) => {
             src={moduleURL}
             id={`module_frame_${moduleURL}`}
             name={`module_frame_${moduleURL}`}
-            onLoad={onLoadFrame}
+            onLoad={sendCredentials}
 
             className="w-100"
             style={{height: 600}}
