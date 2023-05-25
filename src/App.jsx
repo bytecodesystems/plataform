@@ -6,7 +6,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={ <Sidebar /> } />
+                <Route exact path="/plataform/" element={ <Sidebar /> } />
             </Routes>
         </BrowserRouter>
     )
