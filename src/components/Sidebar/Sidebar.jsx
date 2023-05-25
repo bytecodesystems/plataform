@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom"
 
-const Sidebar = ({
-    modules
+const Sidebar = ({ modules }) => {
 
-}) => {
     return (
         <div className="d-flex gap-5">
             {modules.map(module => (
