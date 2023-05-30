@@ -112,7 +112,7 @@ const SidebarComponent = ({ modules }) => {
             toggled={toggled}
             onBackdropClick={() => setToggled(false)}
             onBreakPoint={setBroken}
-            image="/images/sidebar-background.jpg"
+            image="./images/sidebar-background.jpg"
             breakPoint="md"
             backgroundColor={hexToRgba(themes[theme].sidebar.backgroundColor, hasImage ? 0.8 : 1)}
             rootStyles={{
