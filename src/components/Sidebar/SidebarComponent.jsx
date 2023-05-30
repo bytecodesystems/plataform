@@ -112,7 +112,7 @@ const SidebarComponent = ({ modules }) => {
             toggled={toggled}
             onBackdropClick={() => setToggled(false)}
             onBreakPoint={setBroken}
-            image="../../../src/assets/images/sidebar-background.jpg"
+            image="/images/sidebar-background.jpg"
             breakPoint="md"
             backgroundColor={hexToRgba(themes[theme].sidebar.backgroundColor, hasImage ? 0.8 : 1)}
             rootStyles={{
@@ -154,17 +154,33 @@ const SidebarComponent = ({ modules }) => {
                 </div>
 
                 <Menu menuItemStyles={menuItemStyles}>
-                    {modules.map(module => (
-                        <SubMenu
-                            label={module.name}
-                            key={`link_to_route_${module.route}_${module.url}`}
-                            icon={<span className="material-symbols-rounded">{module.icon}</span>}
-                        >
-                            {module.pages[0] && module.pages.map(page => (
-                                <MenuItem key={`sidebar_link_${page.route}_${page.name}`} component={<Link to={page.route} />}>{page.name}</MenuItem>
-                            ))}
-                        </SubMenu>
-                    ))}
+                    {modules.map(module => {
+                        if (module.pages[0]) { return (
+                            <SubMenu
+                                label={module.name}
+                                key={`link_to_route_${module.route}_${module.url}`}
+                                icon={<span className="material-symbols-rounded">{module.icon}</span>}
+                            >
+                                {module.pages[0] && module.pages.map(page => (
+                                    <MenuItem
+                                        key={`sidebar_link_${page.route}_${page.name}`}
+                                        component={<Link to={`/plataform${module.root_route}${page.route}`} />}
+                                    >
+                                        {page.name}
+                                    </MenuItem>
+                                ))}
+                            </SubMenu>
+                        ) }
+                        else { return (
+                            <MenuItem
+                                key={`sidebar_link_/_${module.root_route}`}
+                                component={<Link to={`/plataform${module.root_route}/`} />}
+                                icon={<span className="material-symbols-rounded">{module.icon}</span>}
+                            >
+                                {module.name}
+                            </MenuItem>
+                        ) }
+                    })}
 
 
                     <SubMenu
@@ -192,10 +208,6 @@ const SidebarComponent = ({ modules }) => {
                     </MenuItem>
 
                     <MenuItem icon={<span className="material-symbols-rounded">menu_book</span>}>Documentation</MenuItem>
-
-                    {/* <MenuItem disabled icon={<span className="material-symbols-rounded">manage_accounts</span>}>
-                        Examples
-                    </MenuItem> */}
                 </Menu>
             </div>
         </Sidebar>

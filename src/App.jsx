@@ -20,54 +20,64 @@ const App = () => {
             name: "Lançamento de Notas",
             icon: "checklist",
             url: "https://bytecodesystems.github.io/",
+            root_route: "/grade-posting",
             pages: [
-                { name: "Lançar Notas",   route: "/grade-posting/lancar-notas" },
-                { name: "Notas Lançadas", route: "/grade-posting/notas-lancadas" },
+                { name: "Lançar Notas",   route: "/lancar-notas" },
+                { name: "Notas Lançadas", route: "/notas-lancadas" },
             ]
         },
         {
             name: "Frequência",
             icon: "calendar_month",
             url: "https://bytecodesystems.github.io/findmed-website/",
+            root_route: "/frequency",
             pages: []
         },
         {
             name: "Moods (Feedbacks)",
             icon: "thumbs_up_down",
-            url: "localhost",
-            pages: []
+            url: "http://127.0.0.1:5174",
+            root_route: "/moods",
+            pages: [
+                { name: "Localhost Website", route: "/" }
+            ]
         },
         {
             name: "Suporte ao Aluno",
             icon: "forum",
-            url: "localhost",
+            url: "sadsadasd",
+            root_route: "/support",
             pages: []
         },
         {
             name: "Comunicados",
             icon: "mail",
-            url: "localhost",
+            url: "asddsaasd",
+            root_route: "/messages",
             pages: []
         },
         {
             name: "Biblioteca Online",
             icon: "menu_book",
-            url: "localhost",
+            url: "wewqeqwe",
+            root_route: "/library",
             pages: []
         },
         {
             name: "Diagnósticos",
             icon: "analytics",
-            url: "localhost",
+            url: "czxzxcczx",
+            root_route: "/diagnostics",
             pages: []
         },
         {
             name: "Blog Educacional",
             icon: "newspaper",
-            url: "localhost",
+            url: "locahrewhqhqlhost",
+            root_route: "/blog",
             pages: [
-                { name: "Nova Publicação",    route: "/blog/new-post" },
-                { name: "Minhas publicações", route: "/blog/my-posts" },
+                { name: "Nova Publicação",    route: "/new-post" },
+                { name: "Minhas publicações", route: "/my-posts" },
             ]
         },
     ]
@@ -83,20 +93,19 @@ const App = () => {
                         <Route exact path="/plataform/login" element={ <LoginPage /> } />
 
                         {/* MODULES */}
-                        {/* IDEA: CONCAT MODULE.URL + PAGE.ROUTE */}
-                        {modules.forEach(module => {
+                        {modules.map(module => (
                             module.pages.map(page => (
                                 <Route
                                     key={`route_${page.route}_${module.url}`}
-                                    exact path={`/plataform${page.route}`}
+                                    exact path={`/plataform${module.root_route}${page.route}`}
                                     element={
                                         <ModuleRenderer
                                             credentials={credentials}
-                                            moduleURL={module.url}
+                                            moduleURL={`${module.url}${page.route}`}
                                         />}
                                 />
                             ))
-                        })}
+                        ))}
                     </Routes>
                 </main>
             </BrowserRouter>
