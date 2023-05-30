@@ -1,5 +1,4 @@
 * {
-    transition: all 200ms ease;
     text-decoration: none !important;
 }
 
@@ -16,24 +15,22 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    overflow: hidden;
 }
 
 /* scroll bar */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
 }
 
 ::-webkit-scrollbar-track {
-    background: aliceblue;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #610BD9;
+    background: #D629D9;
     border-radius: 1rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #5617ae;
 }
 
 /* progress bars */

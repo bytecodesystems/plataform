@@ -14,9 +14,7 @@ const ModuleRenderer = ({ moduleURL, credentials }) => {
             id={`module_frame_${moduleURL}`}
             name={`module_frame_${moduleURL}`}
             onLoad={sendCredentials}
-
-            className="w-100"
-            style={{height: 600}}
+            className="w-100 h-100"
 
             // permissions
             allow="geolocation; microphone; camera; midi; encrypted-media"

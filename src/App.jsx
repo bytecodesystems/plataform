@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import Sidebar from "./components/Sidebar/Sidebar"
+import LoginPage from "./components/LoginPage/LoginPage"
+import SidebarComponent from "./components/Sidebar/SidebarComponent"
 import ModuleRenderer from "./components/ModuleRenderer/ModuleRenderer"
 
 const App = () => {
@@ -16,44 +17,99 @@ const App = () => {
     // modules deployeds
     const modules = [
         {
-            name: "Site Bytecode",
-            route: "grade-posting",
-            icon: "",
-            url: "https://bytecodesystems.github.io/"
+            name: "Lançamento de Notas",
+            icon: "checklist",
+            url: "https://bytecodesystems.github.io/",
+            root_route: "/grade-posting",
+            pages: [
+                { name: "Lançar Notas",   route: "/lancar-notas" },
+                { name: "Notas Lançadas", route: "/notas-lancadas" },
+            ]
         },
         {
-            name: "Site Findmed",
-            route: "find-med",
-            icon: "",
-            url: "https://bytecodesystems.github.io/findmed-website/"
+            name: "Frequência",
+            icon: "calendar_month",
+            url: "https://bytecodesystems.github.io/findmed-website/",
+            root_route: "/frequency",
+            pages: []
         },
         {
-            name: "Site Local",
-            route: "localhost",
-            icon: "",
-            url: "http://127.0.0.1:5174/"
+            name: "Moods (Feedbacks)",
+            icon: "thumbs_up_down",
+            url: "http://127.0.0.1:5174",
+            root_route: "/moods",
+            pages: [
+                { name: "Localhost Website", route: "/" }
+            ]
+        },
+        {
+            name: "Suporte ao Aluno",
+            icon: "forum",
+            url: "sadsadasd",
+            root_route: "/support",
+            pages: []
+        },
+        {
+            name: "Comunicados",
+            icon: "mail",
+            url: "asddsaasd",
+            root_route: "/messages",
+            pages: []
+        },
+        {
+            name: "Biblioteca Online",
+            icon: "menu_book",
+            url: "wewqeqwe",
+            root_route: "/library",
+            pages: []
+        },
+        {
+            name: "Diagnósticos",
+            icon: "analytics",
+            url: "czxzxcczx",
+            root_route: "/diagnostics",
+            pages: []
+        },
+        {
+            name: "Blog Educacional",
+            icon: "newspaper",
+            url: "locahrewhqhqlhost",
+            root_route: "/blog",
+            pages: [
+                { name: "Nova Publicação",    route: "/new-post" },
+                { name: "Minhas publicações", route: "/my-posts" },
+            ]
         },
     ]
 
+    // RETURN
     return (
-        <BrowserRouter>
-            <Sidebar modules={modules} />
+        <div className="d-flex vh-100" style={{backgroundColor: "#1D2226"}}>
+            <BrowserRouter>
+                <SidebarComponent modules={modules} />
 
-            {/* MODULES */}
-            <Routes>
-                {modules.map(module => (
-                    <Route
-                        key={`route_${module.path}_${module.url}`}
-                        exact path={`/plataform/${module.route}`}
-                        element={
-                            <ModuleRenderer
-                                credentials={credentials}
-                                moduleURL={module.url} 
-                            />}
-                    />
-                ))}
-            </Routes>
-        </BrowserRouter>
+                <main className="flex-fill">
+                    <Routes>
+                        <Route exact path="/plataform/login" element={ <LoginPage /> } />
+
+                        {/* MODULES */}
+                        {modules.map(module => (
+                            module.pages.map(page => (
+                                <Route
+                                    key={`route_${page.route}_${module.url}`}
+                                    exact path={`/plataform${module.root_route}${page.route}`}
+                                    element={
+                                        <ModuleRenderer
+                                            credentials={credentials}
+                                            moduleURL={`${module.url}${page.route}`}
+                                        />}
+                                />
+                            ))
+                        ))}
+                    </Routes>
+                </main>
+            </BrowserRouter>
+        </div>
     )
 }
 
