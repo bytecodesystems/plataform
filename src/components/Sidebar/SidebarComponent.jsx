@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { Sidebar, Menu, MenuItem, SubMenu, menuClasses } from "react-pro-sidebar"
 import { Badge } from "react-bootstrap"
+import { Sidebar, Menu, MenuItem, SubMenu, menuClasses } from "react-pro-sidebar"
+
+import backgroundImage  from "/images/sidebar-background.jpg"
 
 // themes configs
 const themes = {
@@ -112,7 +114,7 @@ const SidebarComponent = ({ modules }) => {
             toggled={toggled}
             onBackdropClick={() => setToggled(false)}
             onBreakPoint={setBroken}
-            image="./images/sidebar-background.jpg"
+            image={backgroundImage}
             breakPoint="md"
             backgroundColor={hexToRgba(themes[theme].sidebar.backgroundColor, hasImage ? 0.8 : 1)}
             rootStyles={{
@@ -120,7 +122,7 @@ const SidebarComponent = ({ modules }) => {
                 fontFamily: "Poppins, sans-serif",
                 userSelect: "none",
                 border: 0,
-                width: 280,
+                // width: 280,
             }}
         >
             <div className="pb-5">
