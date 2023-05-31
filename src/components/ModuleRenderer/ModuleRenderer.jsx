@@ -1,3 +1,6 @@
+import { modules } from "../../utils/modules"
+import SidebarComponent from "../Sidebar/SidebarComponent"
+
 const ModuleRenderer = ({ moduleURL, credentials }) => {
 
     // SEND CREDENTIALS TO MODULE
@@ -9,24 +12,30 @@ const ModuleRenderer = ({ moduleURL, credentials }) => {
 
     // RENDERING
     return (
-        <iframe
-            src={moduleURL}
-            id={`module_frame_${moduleURL}`}
-            name={`module_frame_${moduleURL}`}
-            onLoad={sendCredentials}
-            className="w-100 h-100"
+        <div className="d-flex vh-100" style={{backgroundColor: "#1D2226"}}>
+            <SidebarComponent modules={modules} />
 
-            // permissions
-            allow="geolocation; microphone; camera; midi; encrypted-media"
-            allowFullScreen
-            allowpaymentrequest="true"
-            allow-same-origin="true"
-            allow-top-navigation="true"
-            allow-forms="true"
-            allow-popups="true"
-            allow-scripts="true"
-            allow-pointer-lock="true"
-        ></iframe>
+            <main className="flex-fill">
+                <iframe
+                    src={moduleURL}
+                    id={`module_frame_${moduleURL}`}
+                    name={`module_frame_${moduleURL}`}
+                    onLoad={sendCredentials}
+                    className="w-100 h-100"
+
+                    // permissions
+                    allow="geolocation; microphone; camera; midi; encrypted-media"
+                    allowFullScreen
+                    allowpaymentrequest="true"
+                    allow-same-origin="true"
+                    allow-top-navigation="true"
+                    allow-forms="true"
+                    allow-popups="true"
+                    allow-scripts="true"
+                    allow-pointer-lock="true"
+                ></iframe>
+            </main>
+        </div>
     )
 }
 
