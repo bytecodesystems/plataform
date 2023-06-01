@@ -16,9 +16,9 @@ const App = (props) => {
 
     // RETURN
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/plataform">
             <Routes>
-                <Route exact path="/plataform/" element={ <LoginPage /> } />
+                <Route exact path="/plataform" element={ <LoginPage /> } />
 
                 {/* MODULES */}
                 {modules.map(module => (
