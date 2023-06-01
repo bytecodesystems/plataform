@@ -6,6 +6,7 @@ export const modules = [
         url: "https://bytecodesystems.github.io/",
         root_route: "/grade-posting",
         pages: [
+            { name: "Home",           route: "/" },
             { name: "Lançar Notas",   route: "/lancar-notas" },
             { name: "Notas Lançadas", route: "/notas-lancadas" },
         ]
