@@ -1,5 +1,5 @@
 #loginpage {
-    background-image: url("./images/beautiful-pink-landscape.jpg");
+    background-image: url("/images/beautiful-pink-landscape.jpg");
     background-size: cover;
     background-position: center center;
     display: flex;
