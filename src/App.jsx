@@ -6,7 +6,7 @@ import ModuleRenderer from "./components/ModuleRenderer/ModuleRenderer"
 import { isAuthenticated } from "./utils/auth"
 import { modules } from "./utils/modules"
 
-const App = (props) => {
+const App = () => {
     // THIS MAY HAVE TO COME FROM API
     const [credentials, setCredentials] = useState({
         access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
@@ -16,7 +16,7 @@ const App = (props) => {
 
     // RETURN
     return (
-        <BrowserRouter basename="/plataform">
+        <BrowserRouter>
             <Routes>
                 <Route exact path="/plataform" element={ <LoginPage /> } />
 
@@ -25,7 +25,7 @@ const App = (props) => {
                     module.pages.map(page => (
                         <Route
                             key={`route_${page.route}_${module.url}`}
-                            exact path={`/plataform${module.root_route}${page.route}`}
+                            path={`/plataform${module.root_route}${page.route}`}
                             element={
                                 isAuthenticated() ? (
                                     <ModuleRenderer
@@ -33,7 +33,7 @@ const App = (props) => {
                                         moduleURL={`${module.url}${page.route}`}
                                     />
                                 ) : (
-                                    <Navigate to="/plataform/" replace />
+                                    <Navigate to="/plataform" replace />
                                 )
                             }
                         />
