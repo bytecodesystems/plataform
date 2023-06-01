@@ -116,7 +116,7 @@ const SidebarComponent = ({ modules }) => {
             onBreakPoint={setBroken}
             image={backgroundImage}
             breakPoint="md"
-            backgroundColor={hexToRgba(themes[theme].sidebar.backgroundColor, hasImage ? 0.8 : 1)}
+            backgroundColor={hexToRgba(themes[theme].sidebar.backgroundColor, hasImage ? (theme === 'dark' ? 0.8 : 0.9) : 1)}
             rootStyles={{
                 color: themes[theme].sidebar.color,
                 fontFamily: "Poppins, sans-serif",

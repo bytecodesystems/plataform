@@ -1,3 +1,13 @@
+:root {
+    --white: #F2F2F2;
+    --light-white: #FCF8F8;
+
+    --green-900: #610BD9;
+    --green-700: #3F3A3A;
+
+    --gray: #3F3A3A;
+}
+
 * {
     text-decoration: none !important;
 }
@@ -21,16 +31,7 @@ body {
 
 /* scroll bar */
 ::-webkit-scrollbar {
-    width: 3px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #D629D9;
-    border-radius: 1rem;
+    width: 0;
 }
 
 /* progress bars */
