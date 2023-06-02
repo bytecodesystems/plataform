@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+
 import "./LoginPage.css"
+import logo from "/images/logo-svg.svg"
 import { isAuthenticated } from "../../utils/auth"
 
 const LoginPage = () => {
@@ -116,12 +118,34 @@ const LoginPage = () => {
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
+                            <img
+                                src={logo}
+                                alt="bytecode logo"
+                                className="bg-white p-3"
+                                style={{
+                                    height: 90,
+                                    borderRadius: 50,
+                                    marginBottom: 60,
+                                    boxShadow: "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)"
+                                }}
+                            />
                             <h1>Bem vindo de volta!</h1>
                             <p>Para se manter conectado conosco, faça o login com suas informações pessoais</p>
                             <button className="ghost" id="signIn">Entrar</button>
                         </div>
 
                         <div className="overlay-panel overlay-right">
+                            <img
+                                src={logo}
+                                alt="bytecode logo"
+                                className="bg-white p-3"
+                                style={{
+                                    height: 90,
+                                    borderRadius: 50,
+                                    marginBottom: 60,
+                                    boxShadow: "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)"
+                                }}
+                            />
                             <h1>Olá!</h1>
                             <p>Introduza os seus dados pessoais e comece a usar nossa plataforma</p>
                             <button className="ghost" id="signUp">Inscrever-se</button>
