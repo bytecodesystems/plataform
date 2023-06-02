@@ -4,7 +4,7 @@ import { Badge } from "react-bootstrap"
 import { Sidebar, Menu, MenuItem, SubMenu, menuClasses } from "react-pro-sidebar"
 
 import backgroundImage from "/images/sidebar-background.jpg"
-import logo from "/logo-svg.svg"
+import logo from "/images/logo-svg.svg"
 
 // themes configs
 const themes = {
@@ -131,7 +131,7 @@ const SidebarComponent = ({ modules }) => {
                 <header className="my-5 ms-4">
                     <div className="d-flex align-items-center gap-3">
                         <img
-                            src="/logo-svg.svg"
+                            src={logo}
                             alt="bytecode-logo"
                             style={{
                                 height: collapsed ? 40 : 35,
@@ -207,10 +207,10 @@ const SidebarComponent = ({ modules }) => {
                         icon={<span className="material-symbols-rounded">calendar_month</span>}
                         suffix={ <Badge bg="success">New</Badge> }
                     >
-                        Calendar
+                        Agenda
                     </MenuItem>
 
-                    <MenuItem icon={<span className="material-symbols-rounded">menu_book</span>}>Documentation</MenuItem>
+                    <MenuItem icon={<span className="material-symbols-rounded">menu_book</span>}>Documentção</MenuItem>
                 </Menu>
             </div>
         </Sidebar>
