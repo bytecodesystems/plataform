@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 import { Badge } from "react-bootstrap"
 import { Sidebar, Menu, MenuItem, SubMenu, menuClasses } from "react-pro-sidebar"
 
-import backgroundImage  from "/images/sidebar-background.jpg"
+import backgroundImage from "/images/sidebar-background.jpg"
+import logo from "/logo-svg.svg"
 
 // themes configs
 const themes = {

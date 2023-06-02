@@ -3,7 +3,7 @@ export const modules = [
     {
         name: "Lançamento de Notas",
         icon: "checklist",
-        url: "https://bytecodesystems.github.io/",
+        url: "https://bytecodesystems.github.io/website",
         root_route: "/grade-posting",
         pages: [
             { name: "Home",           route: "/" },
@@ -14,7 +14,7 @@ export const modules = [
     {
         name: "Frequência",
         icon: "calendar_month",
-        url: "https://bytecodesystems.github.io/findmed-website/",
+        url: "https://bytecodesystems.github.io/findmed-website",
         root_route: "/frequency",
         pages: []
     },

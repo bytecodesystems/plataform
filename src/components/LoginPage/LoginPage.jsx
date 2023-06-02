@@ -34,7 +34,7 @@ const LoginPage = () => {
 
                     // NAVIGATE USER TO SOME SCREEN
                     const isAuth = isAuthenticated()
-                    isAuth ? navigate("/moods") : null
+                    isAuth ? navigate("/plataform/moods") : null
                 }
                 else {
                     span.innerHTML = "Usuário ou senha inválida"
